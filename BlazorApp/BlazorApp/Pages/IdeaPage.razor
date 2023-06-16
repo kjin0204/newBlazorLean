@@ -1,0 +1,91 @@
+﻿@page "/Idea"
+@inject IIdeaRepository Repository
+
+
+<h3>Idea</h3>
+
+@using BlazorApp.Data
+@using BlazorApp.Models;
+
+
+@if (IdeaList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOTE</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var idea in IdeaList)
+            {
+                <tr>
+                    <td>@idea.Id</td>
+                    <td>@idea.Note</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<button style="button" class="close" @onclick="btnCreate_Click">글쓰기</button>
+
+<!--note를 등록하기 위한 폼-->
+@if(isShow)
+{
+    <div class="modal" tabindex="-1" role="dialog" style="display:block;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">어떤 아이디어가 있나요?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" @onclick="btnClose_Click">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="note">아이디어</label>
+                    <input type="text" class="form-control" @bind="@idea.Note">
+                    <button type="button" class="btn btn-primary" @onclick="btnSave_Click">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private Idea idea = new Idea() ;
+    private List<Idea> IdeaList;
+    private bool isShow;
+
+    //처음 페이지 실행시 실행하는 메소드
+    protected override async Task OnInitializedAsync()
+    {
+        IdeaList = await Repository.GetIdeas();
+    }
+
+    private async Task btnSave_Click()
+    {
+        await Repository.AddIdea(idea); //Db에 insert
+        IdeaList = await Repository.GetIdeas(); //Db에서 리스트 조회
+        idea = new Idea();
+        isShow = false;
+    }
+
+    private void btnCreate_Click()
+    {
+        isShow = true;
+    }
+
+    private void btnClose_Click()
+    {
+        isShow = false;
+        idea = new Idea();
+    }
+
+
+}
