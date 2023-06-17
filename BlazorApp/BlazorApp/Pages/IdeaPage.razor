@@ -1,19 +1,25 @@
-﻿@page "/Idea"
+﻿
+@using BlazorApp.Data
+@using BlazorApp.Models;
+
+<!--라우팅 경로-->
+@page "/Idea" 
+<!--의존성주입-->
 @inject IIdeaRepository Repository
 
 
 <h3>Idea</h3>
 
-@using BlazorApp.Data
-@using BlazorApp.Models;
 
-
+<!--IdeaList를 db에서 받아오지 못했을때 loading.. 문구 출력-->
 @if (IdeaList == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
+    
+<!--IdeaList를 테이블 형태로 출력-->
     <table class="table">
         <thead>
             <tr>
@@ -33,9 +39,11 @@ else
     </table>
 }
 
+
+<!--idea를 입력할 모달폼 팝업-->
 <button style="button" class="close" @onclick="btnCreate_Click">글쓰기</button>
 
-<!--note를 등록하기 위한 폼-->
+<!--note를 등록하기 위한 모달폼-->
 @if(isShow)
 {
     <div class="modal" tabindex="-1" role="dialog" style="display:block;">
@@ -76,6 +84,7 @@ else
         isShow = false;
     }
 
+    //모달폼 팝업
     private void btnCreate_Click()
     {
         isShow = true;
