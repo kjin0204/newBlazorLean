@@ -1,0 +1,48 @@
+﻿@page "/TodoListInMemory"
+
+<h2>TodoListInMemory</h2>
+
+<form @onsubmit="Save">
+    <input @bind=@newTodo/>
+</form>
+
+<h3>남은 할일 @todoList.Count(t => !t.IsDone) 개 남았습니다.</h3>
+<br />
+
+@if (@todoList != null)
+{
+    <ul>
+        @foreach (var todo in todoList)
+        {
+            <li>
+                <input type="checkbox" @bind="@todo.IsDone" />
+                <input @bind="@todo.todo" />
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>로딩중 .....</p>
+}
+
+
+@code {
+    List<Todo> todoList = new List<Todo>();
+    string newTodo = string.Empty;
+
+    //page 로드시 발생하는 이벤트.
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 10; i++)
+            todoList.Add(new Todo() { ID = i, todo = $"할일 {i.ToString("00")}" ,IsDone = false });
+    }
+
+    void Save()
+    {
+        int maxCount = todoList.Count + 1;
+        todoList.Add(new Todo() { ID = maxCount, todo = newTodo, IsDone = true });
+        newTodo = string.Empty;
+    }
+
+}

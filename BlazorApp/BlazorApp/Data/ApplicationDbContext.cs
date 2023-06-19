@@ -14,6 +14,6 @@ namespace BlazorApp.Data
 
         /*모델 추가*/
         public DbSet<Idea> Ideas { get; set; }
-        public DbSet<test> testSet { get; set; }
+        public DbSet<Todo> Todos { get; set; }
     }
 }

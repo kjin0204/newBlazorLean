@@ -54,7 +54,6 @@ D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.GeneratedMSBuildE
 D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.AssemblyInfoInputs.cache
 D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.AssemblyInfo.cs
 D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.csproj.CoreCompileInputs.cache
-D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.MvcApplicationPartsAssemblyInfo.cs
 D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.MvcApplicationPartsAssemblyInfo.cache
 D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.RazorAssemblyInfo.cache
 D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.RazorAssemblyInfo.cs
@@ -75,3 +74,6 @@ D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\refint\BlazorApp.dll
 D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.pdb
 D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.genruntimeconfig.cache
 D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\ref\BlazorApp.dll
+D:\Blazor_Learn\BlazorApp\BlazorApp\bin\Debug\net6.0\BlazorApp.Models.dll
+D:\Blazor_Learn\BlazorApp\BlazorApp\bin\Debug\net6.0\BlazorApp.Models.pdb
+D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.MvcApplicationPartsAssemblyInfo.cs

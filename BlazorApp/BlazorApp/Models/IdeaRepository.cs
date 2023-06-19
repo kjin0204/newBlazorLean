@@ -11,6 +11,7 @@ namespace BlazorApp.Models
         public IdeaRepository(ApplicationDbContext context)
         {
             _context = context;
+            
         }
 
         public async Task<Idea> AddIdea(Idea idea)

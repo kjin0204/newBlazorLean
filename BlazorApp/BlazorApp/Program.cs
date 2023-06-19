@@ -1,4 +1,5 @@
 using BlazorApp.Areas.Identity;
+using BlazorApp.Control;
 using BlazorApp.Data;
 using BlazorApp.Models;
 using Microsoft.AspNetCore.Components;
@@ -22,6 +23,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddTransient<IIdeaRepository, IdeaRepository>(); //IdeaRepository 의존성 주입 요청 할때마다 새로운 개체 생성
+builder.Services.AddTransient<ITodoRepository, TodoRepository>(); //TodoRepository 의존성 주입 요청 할때마다 새로운 개체 생성
 
 var app = builder.Build();
 
