@@ -1,0 +1,19 @@
+﻿@page "/Demos/ParentChild/FrmParent"
+@inject IJSRuntime js
+
+<h3>FrmParent</h3>
+<input type="button" value="호출" @onclick=ParentCall/>
+
+<FrmChild OnParentCall="ParentCall" fromParentData="1515" SendPageNumber=GetPage></FrmChild>
+
+@code {
+    protected void ParentCall()
+    {
+        js.InvokeAsync<object>("alert", "부모에서 호출 됨.");
+    }
+
+    protected void GetPage(int pageNumber)
+    {
+        js.InvokeAsync<object>("alert", $"자식에서 받은 페이지 번호 : {pageNumber}");
+    }
+}

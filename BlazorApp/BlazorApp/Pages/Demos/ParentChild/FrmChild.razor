@@ -1,0 +1,38 @@
+﻿@inject IJSRuntime js
+
+
+<h3>FrmChild</h3>
+
+부모에서 받은 값 : @fromParentData
+<br />
+<button type="button" @onclick="ParentCall" >호출</button>
+<br />
+<input type="button" value="1페이지" @onclick="@(() => SendPage(1))" />
+<input type="button" value="2페이지" @onclick="@(() => SendPage(2))" />
+
+@code {
+    //부모에서 받을 int 매개 변수
+    [Parameter]
+    public int fromParentData { get; set; }
+
+    //부모에서 Action(반환 값 없는 call back)함수를 받음.
+    [Parameter]
+    public Action OnParentCall { get; set; }
+
+
+    //부모에서 Action(반환 값 없는 call back)함수를 받음.
+    [Parameter]
+    public Action<int> SendPageNumber { get; set; }
+
+    protected void ParentCall()
+    {
+        //?는 번수가 null인지 체크 후 null이 아닐 경우 invoke 실행
+        OnParentCall?.Invoke();
+    }
+
+    protected void SendPage(int number)
+    {
+        SendPageNumber?.Invoke(number);
+    }
+
+}
