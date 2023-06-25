@@ -1,0 +1,36 @@
+﻿@page "/BlazorForm"
+@inject IJSRuntime js
+
+
+<h3>BlazorForm</h3>
+
+@*OnValidSubmit submit이 발생했을때 실행할 메소드 지정.
+    Model editform에서 사용할 모델 설정.
+*@
+<EditForm Model="@exampleModel" OnValidSubmit="OnSubmit">
+    @*
+        DataAnnotationsValidator => 유효성 검사
+        ValidationSummary 유효성 위반시 출력할 메시지 summary
+        ValidationMessage For 유효성 위반시 출력할 메시지 설정.
+    *@
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+    <ValidationSummary></ValidationSummary>
+    <InputText id="Text" @bind-Value=exampleModel.Name ></InputText>
+    <ValidationMessage For="@(() => exampleModel.Name)"></ValidationMessage>
+
+    <button type="submit">완료</button>
+</EditForm>
+<hr />
+
+
+
+
+@code {
+    ExampleModel exampleModel = new ExampleModel();
+
+    private void OnSubmit()
+    {
+        js.InvokeAsync<object>("alert", $"제이름은 : {exampleModel.Name} 입니다.");
+    }
+
+}

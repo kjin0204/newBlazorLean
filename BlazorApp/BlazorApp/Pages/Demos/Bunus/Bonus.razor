@@ -9,6 +9,8 @@
     {
         <span>@data.name : </span>
         <span>@data.amount.ToString("c0") </span>
+        @*style을 사용해 input max뷰를 변경 시킴.*@
+        @*@bind:event="oninput"을 사용 하여 값변화시 실시간으로 view에 반영 됨.*@
         <input type="range" max="@(remainBuget + data.amount)" @bind="data.amount" @bind:event="oninput" style="width: @(100 *(data.amount + remainBuget)/totalBuget)%" step="1000" />
     }
     <span>아빠 : </span>
@@ -36,6 +38,7 @@
     private void OnClickButton()
     {
         js.InvokeAsync<object>("alert", "용돈 나누기 완료");
+        //인덱스 페이지로 이동 시키기
         navi.NavigateTo("/");
     }
 
