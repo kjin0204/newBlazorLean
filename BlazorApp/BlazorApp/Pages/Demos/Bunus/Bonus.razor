@@ -1,0 +1,42 @@
+﻿@page "/Bonus"
+@inject IJSRuntime js 
+@inject NavigationManager navi
+
+<h3>Bonus</h3>
+
+<div class="budget">
+    @foreach(var data in bugetList)
+    {
+        <span>@data.name : </span>
+        <span>@data.amount.ToString("c0") </span>
+        <input type="range" max="@(remainBuget + data.amount)" @bind="data.amount" @bind:event="oninput" style="width: @(100 *(data.amount + remainBuget)/totalBuget)%" step="1000" />
+    }
+    <span>아빠 : </span>
+    <span>@remainBuget.ToString("c0")</span>
+</div>
+
+<button disabled = "@(remainBuget > 0)" @onclick="OnClickButton">완료</button>
+
+@code {
+    decimal totalBuget = 1_000_000;
+    decimal remainBuget => totalBuget - bugetList.Sum(k => k.amount);
+    List<BugetItem> bugetList = null;
+
+    //처음 페이지 실행시 실행하는 메소드
+    protected override async Task OnInitializedAsync()
+    {
+        bugetList = new List<BugetItem>()
+        {
+            new BugetItem {amount = 0, name = "엄마"},
+            new BugetItem {amount = 0, name = "아들"},
+            new BugetItem {amount = 0, name = "딸"}
+        };
+    }
+
+    private void OnClickButton()
+    {
+        js.InvokeAsync<object>("alert", "용돈 나누기 완료");
+        navi.NavigateTo("/");
+    }
+
+}
