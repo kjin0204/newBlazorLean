@@ -1,0 +1,65 @@
+﻿
+@using System.Timers
+@implements IDisposable 
+
+<div class="Search">
+    <i class="oi oi-eye"></i>
+    <input placeholder="Seach..." @attributes=AdditionalAttributes @bind="SearchQuery" @bind:event="oninput" />
+    <input type="button" value="검색" @onclick=Search />
+</div>
+
+자식 : @SearchQuery
+<hr />
+
+
+@code {
+    private string searchQuery;
+    private Timer timer;
+
+    public string SearchQuery
+    {
+        get => searchQuery;
+        set { searchQuery = value;
+            timer.Stop();
+            timer.Start();
+        }
+    }
+
+
+    //부모에서 속성 값을 받아서 자식에서 활욜 할 수 있음.
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; }
+
+    protected override void OnInitialized()
+    {
+        timer = new Timer();
+        timer.Interval = Debounce;
+        timer.AutoReset = false;
+        timer.Elapsed += SearchHandler;
+    }
+
+    [Parameter]
+    public EventCallback<string> SearchQueryChanged { get; set; }
+
+    [Parameter]
+    public int Debounce { get; set; } = 300;
+
+
+    protected async void Search()
+    {
+        await SearchQueryChanged.InvokeAsync(SearchQuery);
+    }
+
+
+
+    protected async void SearchHandler(object source, ElapsedEventArgs e)
+    {
+        await InvokeAsync(() => SearchQueryChanged.InvokeAsync(SearchQuery)); // 부모의 메서드에 검색어 전달
+    }
+
+    public void Dispose()
+    {
+        timer.Dispose();
+    }
+}
