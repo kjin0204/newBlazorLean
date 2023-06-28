@@ -36,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVtb3NcQnVudXNcQm9udXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Blazor_Learn/BlazorApp/BlazorApp/Pages/Demos/MatBlazor/MatBlazorTable.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVtb3NcTWF0Qmxhem9yXE1hdEJsYXpvclRhYmxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Blazor_Learn/BlazorApp/BlazorApp/Pages/Demos/ParentChild/FrmChild.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVtb3NcUGFyZW50Q2hpbGRcRnJtQ2hpbGQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,57 @@
+﻿@page "/MatBlazor/MatBlazorTable"
+
+<h3>MatBlazorTable</h3>
+<hr />
+<MatButton>test</MatButton>
+<MatButton Raised="true">Raised</MatButton>
+<MatButton Unelevated="true">Unelevated</MatButton>
+<MatButton Outlined="true">Outlined</MatButton>
+<MatButton Dense="true">Dense</MatButton>
+<hr />
+
+<h3 class="mat-subtitle1">Reversed</h3>
+<MatProgressBar Indeterminate="true" Reversed="true"></MatProgressBar>
+<hr />
+
+<MatTable Items="@cars" class="mat-elevation-z5">
+    <MatTableHeader>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Horsepower</th>
+    </MatTableHeader>
+    <MatTableRow>
+        <td>@context.Name</td>
+        <td>@string.Format("${0:f2}", @context.Price)</td>
+        <td>@context.Horsepower</td>
+    </MatTableRow>
+</MatTable>
+
+@code
+{
+
+    public class Car
+    {
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public int Horsepower { get; set; }
+
+        public Car(string name, double price, int horsepower)
+        {
+            Name = name;
+            Price = price;
+            Horsepower = horsepower;
+        }
+    }
+
+    Car[] cars = new[]
+    {
+                new Car("Volkswagen Golf", 10000, 220),
+                new Car("Volkswagen Passat", 11000, 240),
+                new Car("Volkswagen Polo", 12000, 110),
+                new Car("Ford Focus", 13000, 200),
+                new Car("Ford Fiesta", 14000, 160),
+                new Car("Ford Fusion", 15000, 260),
+                new Car("Ford Mondeo", 16000, 120),
+    };
+}
+

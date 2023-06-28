@@ -77,3 +77,12 @@ D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\ref\BlazorApp.dll
 D:\Blazor_Learn\BlazorApp\BlazorApp\bin\Debug\net6.0\BlazorApp.Models.dll
 D:\Blazor_Learn\BlazorApp\BlazorApp\bin\Debug\net6.0\BlazorApp.Models.pdb
 D:\Blazor_Learn\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.MvcApplicationPartsAssemblyInfo.cs
+D:\Blazor_Learn\BlazorApp\BlazorApp\bin\Debug\net6.0\MatBlazor.dll
+D:\Blazor_Learn\BlazorApp\BlazorApp\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
+D:\Blazor_Learn\BlazorApp\BlazorApp\bin\Debug\net6.0\Microsoft.AspNetCore.Components.dll
+D:\Blazor_Learn\BlazorApp\BlazorApp\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
+D:\Blazor_Learn\BlazorApp\BlazorApp\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.dll
+D:\Blazor_Learn\BlazorApp\BlazorApp\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
+D:\Blazor_Learn\BlazorApp\BlazorApp\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Blazor_Learn\BlazorApp\BlazorApp\bin\Debug\net6.0\Microsoft.JSInterop.dll
+D:\Blazor_Learn\BlazorApp\BlazorApp\bin\Debug\net6.0\System.IO.Pipelines.dll
