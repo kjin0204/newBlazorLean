@@ -1,0 +1,12 @@
+﻿@page "/FrmFileUploadTest";
+
+
+
+<h3>파일 업로드</h3>
+
+
+<BlazorInputFile.InputFile OnChange="HandleSelection"></BlazorInputFile.InputFile>
+<br />
+@selectFileName
+<br />
+<input type="button" name="Save" value="업로드" @onclick="OnClickButton" />

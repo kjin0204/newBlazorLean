@@ -26,6 +26,7 @@ builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddTransient<IIdeaRepository, IdeaRepository>(); //IdeaRepository 의존성 주입 요청 할때마다 새로운 개체 생성
 builder.Services.AddTransient<ITodoRepository, TodoRepository>(); //TodoRepository 의존성 주입 요청 할때마다 새로운 개체 생성
 builder.Services.AddScoped<HttpClient>(); // Matblazor를 위해 추가
+builder.Services.AddScoped<IFileUploadService, FileUploadService>();// fileUpload기능 의존성 추가
 
 
 //builder.Services.AddMatBlazor();

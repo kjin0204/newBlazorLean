@@ -1,0 +1,108 @@
+﻿@page "/ChartJs"
+@using ChartJs.Blazor.PieChart
+@using ChartJs.Blazor.BarChart
+@using ChartJs.Blazor.Common
+@using ChartJs.Blazor.Common.Axes
+@using ChartJs.Blazor.Common.Axes.Ticks
+@using ChartJs.Blazor.Common.Enums
+@using ChartJs.Blazor.Common.Handlers
+@using ChartJs.Blazor.Common.Time
+@using ChartJs.Blazor.Util
+@using ChartJs.Blazor.Interop
+
+
+<h3>ChartJs</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <Chart Config="_config"></Chart>
+    </div>
+    <div class="col-md-6">
+        <Chart Config="_config1"></Chart>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <BlazorApp.Charts.Pie></BlazorApp.Charts.Pie>
+    </div>
+    <div class="col-md-6">
+        <BlazorApp.Charts.Bar.Horizontal></BlazorApp.Charts.Bar.Horizontal>
+    </div>
+</div>
+
+@code {
+    private PieConfig _config;
+    private PieConfig _config1;
+    private BarConfig _config2;
+
+
+
+    protected override void OnInitialized()
+    {
+        _config = new PieConfig
+            {
+                Options = new PieOptions
+                {
+                    Responsive = true,
+                    Title = new OptionsTitle
+                    {
+                        Display = true,
+                    }
+                }
+            };
+
+        foreach (string color in new[] { "Red", "Yellow", "Green", "Blue" })
+        {
+            _config.Data.Labels.Add(color);
+        }
+
+        PieDataset<int> dataset = new PieDataset<int>(new[] { 6, 5, 3, 7 })
+            {
+                BackgroundColor = new[]
+                {
+            ColorUtil.ColorHexString(255, 99, 132), // Slice 1 aka "Red"
+            ColorUtil.ColorHexString(255, 205, 86), // Slice 2 aka "Yellow"
+            ColorUtil.ColorHexString(75, 192, 192), // Slice 3 aka "Green"
+            ColorUtil.ColorHexString(54, 162, 235), // Slice 4 aka "Blue"
+        }
+            };
+
+        _config.Data.Datasets.Add(dataset);
+
+
+        _config1 = new PieConfig
+            {
+                Options = new PieOptions
+                {
+                    Responsive = true,
+                    Title = new OptionsTitle
+                    {
+                        Display = true,
+                    }
+                }
+            };
+
+        foreach (string color in new[] { "Red", "Yellow", "Green", "Blue" })
+        {
+            _config1.Data.Labels.Add(color);
+        }
+
+        PieDataset<int> dataset1 = new PieDataset<int>(new[] { 6, 5, 3, 7 })
+            {
+                BackgroundColor = new[]
+                    {
+            ColorUtil.ColorHexString(255, 99, 132), // Slice 1 aka "Red"
+            ColorUtil.ColorHexString(255, 205, 86), // Slice 2 aka "Yellow"
+            ColorUtil.ColorHexString(75, 192, 192), // Slice 3 aka "Green"
+            ColorUtil.ColorHexString(54, 162, 235), // Slice 4 aka "Blue"
+        }
+            };
+
+        _config1.Data.Datasets.Add(dataset1);
+
+
+
+    }
+}

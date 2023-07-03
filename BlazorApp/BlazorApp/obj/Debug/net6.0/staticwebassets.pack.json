@@ -1,8 +1,16 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\kin02\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\contentFiles\\any\\netstandard2.1\\wwwroot\\ChartJsBlazorInterop.js",
+      "PackagePath": "staticwebassets\\ChartJsBlazorInterop.js"
+    },
+    {
       "Id": "D:\\Blazor_Learn\\BlazorApp\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css",
       "PackagePath": "staticwebassets\\BlazorApp.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Blazor_Learn\\BlazorApp\\BlazorApp\\wwwroot\\Upload\\mybest_capture.png",
+      "PackagePath": "staticwebassets\\Upload\\mybest_capture.png"
     },
     {
       "Id": "D:\\Blazor_Learn\\BlazorApp\\BlazorApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
