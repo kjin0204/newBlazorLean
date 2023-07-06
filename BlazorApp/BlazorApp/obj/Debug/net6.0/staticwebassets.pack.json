@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Id": "D:\\Blazor_Learn\\BlazorApp\\BlazorApp\\wwwroot\\css\\ie9.css",
+      "PackagePath": "staticwebassets\\css\\ie9.css"
+    },
+    {
       "Id": "D:\\Blazor_Learn\\BlazorApp\\BlazorApp\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },
@@ -57,12 +61,28 @@
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
+      "Id": "D:\\Blazor_Learn\\BlazorApp\\BlazorApp\\wwwroot\\css\\signature-pad.css",
+      "PackagePath": "staticwebassets\\css\\signature-pad.css"
+    },
+    {
       "Id": "D:\\Blazor_Learn\\BlazorApp\\BlazorApp\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "D:\\Blazor_Learn\\BlazorApp\\BlazorApp\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Blazor_Learn\\BlazorApp\\BlazorApp\\wwwroot\\js\\BlazorSignature_pad.umd.js",
+      "PackagePath": "staticwebassets\\js\\BlazorSignature_pad.umd.js"
+    },
+    {
+      "Id": "D:\\Blazor_Learn\\BlazorApp\\BlazorApp\\wwwroot\\js\\app.js",
+      "PackagePath": "staticwebassets\\js\\app.js"
+    },
+    {
+      "Id": "D:\\Blazor_Learn\\BlazorApp\\BlazorApp\\wwwroot\\js\\signature_pad.umd.js",
+      "PackagePath": "staticwebassets\\js\\signature_pad.umd.js"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.BlazorApp.Microsoft.AspNetCore.StaticWebAssets.props",

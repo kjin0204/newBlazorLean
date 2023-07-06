@@ -1,0 +1,56 @@
+﻿@page "/SignaturePad"
+@inject IJSRuntime js
+
+<h3>SignaturePad</h3>
+
+<canvas width="300" height="300" id="theCanvas" style="border: 1px solid red;">
+    </canvas>
+<hr />
+<input type="text" @bind="ImageData" id="txtSignature" />
+<hr />
+<img src="@ImageDataSrc" />
+<hr />
+<input type="button" value="가져오기" @onclick="GetImageData" />
+<input type="button" value="지우기" @onclick="DeleteData" />
+
+@code {
+    //랜더링 완료 후 호출 되는 함수
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        //처음 랜더링 될때만 firstRender매게변수가 true가 됨.
+        if(firstRender)
+        {
+            await js.InvokeAsync<object>("BlazorSignaturePad", "theCanvas");
+        }
+    }
+
+    string ImageData = "";
+
+    private string ImageDataSrc = "";
+
+    public void GetImageData()
+    {
+        ImageDataSrc = SignaturePad.GetImageSrc();
+    }
+
+    //canvas 초기화
+    public async Task DeleteData()
+    {
+        await js.InvokeAsync<object>("BlazorSignaturePad", "theCanvas");
+    }
+
+    public static string GetImageSrc()
+    {
+        return ImageDataFromJavaScript;
+    }
+
+
+    private static string ImageDataFromJavaScript = "";
+    //js에서 호출되어 이미지 정보 전달받음.
+    [JSInvokable]
+    public static void GetImageDataAsync(string imageData)
+    {
+        ImageDataFromJavaScript = imageData;
+    }
+
+}
