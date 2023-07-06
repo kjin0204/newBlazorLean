@@ -388,12 +388,14 @@
             this._strokeUpdate(event);
             this.dispatchEvent(new CustomEvent('endStroke', { detail: event }));
 
+            //추가된부분=========================================================================================
             //this.toDataURL()함수가 정의 되어 있으며 그리다가 마우스를 놓는 순간 이미지를 base64형식으로 반환.
             //id가 txtSignature인 컨트롤러에 이미지 데이터 입력.
             document.getElementById("txtSignature").value = this.toDataURL();
 
             //js에서 c#에서 생성한 메소드 호출 매개변수 (프로젝트명, 함수 이름, 매개변수)
             DotNet.invokeMethodAsync("BlazorApp", "GetImageDataAsync", this.toDataURL());
+            //추가된부분=========================================================================================
 
         }
         _handlePointerEvents() {
@@ -573,6 +575,8 @@
 
 }));
 
+//추가된부분=========================================================================================
+//블레이저에서 canvas를 SignaturePad로 변환하기위해 호출 함.
 window.BlazorSignaturePad = function (id) {
     var canvas = document.getElementById(id);
 
@@ -583,6 +587,7 @@ window.BlazorSignaturePad = function (id) {
         backgroundColor: 'rgb(255, 255, 255)'
     });
 }
+//추가된부분=========================================================================================
 
 
 
